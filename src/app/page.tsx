@@ -1,65 +1,107 @@
+// file: 'src/app/page.tsx'
 import Image from "next/image";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main className="min-h-screen bg-gradient-to-b from-zinc-50 to-white text-zinc-900 dark:from-black dark:to-zinc-900 dark:text-zinc-100 font-sans">
+      <section className="mx-auto max-w-7xl px-6 pt-20 pb-24 md:pt-32 md:pb-32">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+              Financial infrastructure built to accelerate your revenue growth
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-300 max-w-2xl">
+              Accept payments, automate revenue operations, and expand globally
+              with a unified platform.
+            </p>
+            <div className="mt-10">
+              <a
+                href="#get-started"
+                className="rounded-lg bg-indigo-600 px-6 py-3 text-sm md:text-base font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              >
+                Start now
+              </a>
+            </div>
+          </div>
+          <div className="relative w-full h-80 md:h-120 lg:h-150">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/heroSection.png"
+              alt="Hero"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover rounded-xl shadow-sm"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div className="mt-16 md:mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "Global payments",
+              desc: "Cards, wallets, bank redirects, and local methods.",
+            },
+            {
+              title: "Revenue automation",
+              desc: "Billing, invoicing, dunning, and tax.",
+            },
+            {
+              title: "Financial services",
+              desc: "Issuing, lending, and treasury tools.",
+            },
+            {
+              title: "Risk & compliance",
+              desc: "Advanced fraud detection and KYC.",
+            },
+            {
+              title: "Developer platform",
+              desc: "Modern APIs, webhooks, and SDKs.",
+            },
+            {
+              title: "Scale & reliability",
+              desc: "High availability and enterprise‑grade security.",
+            },
+          ].map((f) => (
+            <div
+              key={f.title}
+              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+            >
+              <h3 className="text-lg font-semibold">{f.title}</h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+                {f.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer className="border-t border-zinc-200 py-10 text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+        <div className="mx-auto max-w-7xl px-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p>© {new Date().getFullYear()} Echelon Inc.</p>
+          <div className="flex items-center gap-4">
+            <a
+              className="hover:text-zinc-900 dark:hover:text-zinc-200"
+              href="#"
+            >
+              Terms
+            </a>
+            <a
+              className="hover:text-zinc-900 dark:hover:text-zinc-200"
+              href="#"
+            >
+              Privacy
+            </a>
+            <a
+              className="hover:text-zinc-900 dark:hover:text-zinc-200"
+              href="#"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
-}
+};
+
+export default Home;
